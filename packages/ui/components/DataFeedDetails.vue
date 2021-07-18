@@ -26,14 +26,14 @@
       class="transactions"
       :transactions="transactions"
     />
-    <el-pagination
+    <!-- <el-pagination
       v-if="numberOfPages > 1"
       class="pagination"
       layout="prev, pager, next"
       :page-count="numberOfPages"
       :current-page="currentPage"
       @current-change="handleCurrentChange"
-    />
+    /> -->
   </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
   data() {
     return {
       currentPage: 1,
-      itemsPerPage: 6,
+      itemsPerPage: 30,
       id: this.$route.params.id,
     }
   },
