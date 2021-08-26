@@ -48,14 +48,17 @@ export default {
       toolTipWidth: 100,
       tooltipLeftPosition: 10,
       ranges: CHART_RANGE,
+      get range() {
+        return process.browser ? localStorage.getItem('range') : ''
+      },
+      set range(value) {
+        return process.browser ? localStorage.setItem('range', value) : value
+      },
     }
   },
   computed: {
     activeItem() {
-      const saveItem = process.browser
-        ? window.localStorage.getItem('range')
-        : null
-      return saveItem || this.ranges.d.key
+      return this.range || this.ranges.w.key
     },
     chart() {
       const { LightWeightCharts } = this.$lwcCore()
@@ -134,9 +137,9 @@ export default {
     setData() {
       this.lineChart.setData(this.data)
     },
-    async onItemClicked(currentRange) {
+    onItemClicked(currentRange) {
       if (process.browser) {
-        await window.localStorage.setItem('range', currentRange)
+        this.range = currentRange
       }
       this.$emit('change-range', currentRange)
     },

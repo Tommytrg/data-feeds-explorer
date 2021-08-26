@@ -1,11 +1,13 @@
 <template>
-  <div v-if="!$apollo.loading" class="content">
+  <div class="content">
     <div class="section-header">
       <nuxt-link class="back-to-list" :to="localePath('/')">
         <font-awesome-icon class="icon" icon="arrow-alt-circle-left" />
       </nuxt-link>
-      <SvgIcon :name="svgIcon" />
-      <p class="network" :style="{ color: feed.color }">{{ network }}</p>
+      <SvgIcon v-if="svgIcon" :name="svgIcon" />
+      <p class="network" :style="{ color: feed && feed.color }">
+        {{ network }}
+      </p>
     </div>
     <Chart
       class="chart"
@@ -81,7 +83,7 @@ export default {
       itemsPerPage: 25,
       id: this.$route.params.id,
       range: 24,
-      timestamp: getTimestampByRange(this.ranges.w.value),
+      timestamp: getTimestampByRange(CHART_RANGE.w.value),
     }
   },
   computed: {
@@ -89,25 +91,30 @@ export default {
       return this.numberOfPages > 10
     },
     svgIcon() {
-      return this.feed.name.split('/').join('')
+      return this.feed ? this.feed.name.split('/').join('') : ''
     },
     url() {
-      return this.feed.blockExplorer.replace(`{address}`, this.feedAddress)
+      return this.feed
+        ? this.feed.blockExplorer.replace(`{address}`, this.feedAddress)
+        : ''
     },
     numberOfPages() {
-      return Math.ceil(this.feed.requests.length / this.itemsPerPage)
+      return this.feed
+        ? Math.ceil(this.feed.requests.length / this.itemsPerPage)
+        : 0
     },
     feedName() {
-      return this.feed.name.toUpperCase()
+      return this.feed ? this.feed.name.toUpperCase() : ''
     },
     feedAddress() {
-      return this.feed.address
+      return this.feed ? this.feed.address : ''
     },
     network() {
-      return this.feed.network.toUpperCase()
+      return this.feed ? this.feed.network.toUpperCase() : ''
     },
     chartData() {
-      if (this.feed.requests.length > 0) {
+      if (this.feed && this.feed.requests.length > 0) {
+        console.log('this.feed.requests', this.feed.requests)
         return this.feed.requests
           .map((request) => {
             return {
@@ -122,7 +129,7 @@ export default {
       }
     },
     transactions() {
-      if (this.requests.length > 0) {
+      if (this.feed && this.requests && this.requests.length > 0) {
         return this.requests.map((request) => ({
           witnetLink: getWitnetBlockExplorerLink(request.drTxHash),
           drTxHash: request.drTxHash,
@@ -142,6 +149,7 @@ export default {
       this.currentPage = val
     },
     updateQuery(val) {
+      console.log('val', val)
       this.timestamp = getTimestampByRange(this.ranges[val].value)
     },
   },
