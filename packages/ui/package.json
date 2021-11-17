@@ -23,6 +23,7 @@
     "big.js": "^6.1.1",
     "core-js": "^3.8.3",
     "graphql-tag": "^2.12.4",
+    "jest-transform-graphql": "^2.1.0",
     "lightweight-charts": "^3.3.0",
     "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
@@ -33,13 +34,18 @@
     "vue-select": "^3.11.2"
   },
   "devDependencies": {
-    "@nuxt/test-utils": "^0.2.2",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/svg": "^0.1.12",
+    "@vue/test-utils": "1.2.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^27.3.1",
     "jest": "^27.0.6",
-    "vue-i18n-extract": "^1.2.3"
+    "vue-i18n-extract": "^1.2.3",
+    "vue-jest": "^3.0.7"
   }
 }
