@@ -209,6 +209,28 @@
     "blockExplorer": "https://explorer.celo.org/address/{address}"
   },
   {
+    "feedFullName": "celo-mainnet-eur_6",
+    "abi": "./src/abi/PriceFeed.json",
+    "address": "0xdDBf8eBC2C5435bf2251611466b45bf625a6E1DB",
+    "network": "celo-mainnet",
+    "name": "celo/eur",
+    "label": "€",
+    "pollingPeriod": 300000,
+    "color": "#ff8100",
+    "blockExplorer": "https://explorer.celo.org/address/{address}"
+  },
+  {
+    "feedFullName": "celo-mainnet-usd_6",
+    "abi": "./src/abi/PriceFeed.json",
+    "address": "0x45EE6664E3be238C3ebC0462e0750e103ff6F24E",
+    "network": "celo-mainnet",
+    "name": "celo/usd",
+    "label": "$",
+    "pollingPeriod": 300000,
+    "color": "#ff8100",
+    "blockExplorer": "https://explorer.celo.org/address/{address}"
+  },
+  {
     "feedFullName": "boba-rinkeby_btc-usd_6",
     "abi": "./src/abi/PriceFeed.json",
     "address": "0xeD074DA2A76FD2Ca90C1508930b4FB4420e413B0",
