@@ -129,14 +129,15 @@ export class Web3Middleware {
       return await new Promise(async (resolve, reject) => {
         try {
           const provider = getProvider(feedInfo.network)
+          const timeoutMs = 30000 // 30 seconds
           //FIXME: make timeout work
           const web3 = new this.Web3(
-            new Web3.providers.HttpProvider(provider, { timeout: 10000 })
+            new Web3.providers.HttpProvider(provider, { timeout: timeoutMs })
           )
           //FIXME: use web3 timeout instead of custom
           setTimeout(() => {
             reject('Timeout')
-          }, 30000)
+          }, timeoutMs)
 
           if (!this.routerContractByAddress[feedInfo.routerAddress]) {
             this.routerContractByAddress[
