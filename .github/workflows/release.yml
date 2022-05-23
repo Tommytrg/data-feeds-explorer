@@ -1,8 +1,6 @@
-# https://docs.github.com/en/actions
-
 name: "Release"
 
-on: # yamllint disable-line rule:truthy
+on:
   push:
     tags:
       - "**"
@@ -18,7 +16,7 @@ jobs:
         run: "echo \"RELEASE_TAG=${GITHUB_REF#refs/tags/}\" >> $GITHUB_ENV"
 
       - name: "Create release"
-        uses: "actions/github-script@v5"
+        uses: "actions/github-script@v6"
         with:
           github-token: "${{ secrets.API_KEY_GITHUB }}"
           script: |
