@@ -22,7 +22,7 @@ module.exports = {
     const updateConfluxRinkebyPromises = (
       await resultRequestCollection.find({
         feedFullName: /conflux-testnet/
-      })
+      }).toArray()
     )
       .map(resultRequest => ({
         ...resultRequest,
