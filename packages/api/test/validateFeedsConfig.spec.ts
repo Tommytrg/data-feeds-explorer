@@ -1,4 +1,4 @@
-import { normalizeConfig } from '../src/utils/index'
+import { normalizeConfig } from '../src/utils/index.js'
 import dataFeedsRouterConfig from '../test/web3Middleware/dataFeedsRouter.json'
 
 describe('validateDataFeedsConfig', () => {

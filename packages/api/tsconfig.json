@@ -1,17 +1,21 @@
 {
   "compilerOptions": {
-    "lib": ["ES2020", "DOM"],
-    "target": "es5",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "noImplicitReturns": true,
-    "downlevelIteration": true
+
+    "sourceMap": true,
+    "declaration": true,
+    "module": "NodeNext",
+    "target": "ESNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",        "strictNullChecks": true
   },
-  "include": ["src/"]
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {
+          "transpileOnly": true,
+          "files": true,
+          "experimentalResolver": true
+  }
 }

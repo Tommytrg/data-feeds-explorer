@@ -1,7 +1,7 @@
 import { ApolloServer } from '@apollo/server'
-import typeDefs from './typeDefs'
+import typeDefs from './typeDefs.js'
 import { DIRECTIVES } from '@graphql-codegen/typescript-mongodb'
-import resolvers from './resolvers'
+import resolvers from './resolvers.js'
 import {
   ConfigByFullName,
   Context,
@@ -9,10 +9,10 @@ import {
   Loaders,
   NetworksConfig,
   Repositories
-} from './types'
+} from './types.js'
 import { startStandaloneServer } from '@apollo/server/standalone'
-import { LoadersFactory } from './loaders'
-import SvgCache from './svgCache'
+import { LoadersFactory } from './loaders/index.js'
+import SvgCache from './svgCache.js'
 
 export async function createServer (
   repositories: Repositories,

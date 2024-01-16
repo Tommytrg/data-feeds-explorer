@@ -1,4 +1,4 @@
-import { normalizeNetworkConfig } from '../src/utils/index'
+import { normalizeNetworkConfig } from '../src/utils/index.js'
 import dataFeedsRouterConfig from '../test/web3Middleware/dataFeedsRouter.json'
 
 describe('validateNetworkConfig', () => {

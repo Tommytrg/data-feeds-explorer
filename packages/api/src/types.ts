@@ -1,12 +1,12 @@
 import { AbiItem } from 'web3-utils'
-import { ResultRequestDbObject } from './generated/types'
+import { ResultRequestDbObject } from './generated/types.js'
 import { Contract } from 'web3-eth-contract'
 
-import { FeedRepository } from './repository/Feed'
-import { ResultRequestRepository } from './repository/ResultRequest'
+import { FeedRepository } from './repository/Feed.js'
+import { ResultRequestRepository } from './repository/ResultRequest.js'
 import DataLoader from 'dataloader'
 
-export * from './generated/types'
+export * from './generated/types.js'
 export { AbiItem } from 'web3-utils'
 export { Contract } from 'web3-eth-contract'
 export { Db, Collection, WithId } from 'mongodb'
