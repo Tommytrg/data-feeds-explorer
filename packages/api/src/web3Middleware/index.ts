@@ -141,7 +141,7 @@ export class Web3Middleware {
 
   stop() {
     this.intervals.forEach((interval) => {
-      clearInterval(interval)
+      clearInterval(Number(interval))
     })
 
     this.intervals = []
